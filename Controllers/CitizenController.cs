@@ -28,10 +28,11 @@ namespace AngularWebAPISample.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult GetCitizenById(Citizen employeee)
+        public IHttpActionResult GetCitizenById(string citizen_id, string citizen_name)
         {
             Citizen objEmp = new Citizen();
-            object[] priKey = new object[] { employeee.ID, employeee.CName };
+            int id = Convert.ToInt32(citizen_id);
+            object[] priKey = new object[] { id, citizen_name };
             try
             {
                 objEmp = objCit.Citizens.Find(priKey) ;
@@ -103,10 +104,10 @@ namespace AngularWebAPISample.Controllers
         }
 
         [HttpDelete]
-        public IHttpActionResult Delete(Citizen employee)
+        public IHttpActionResult Delete(string citizen_id, string citizen_name)
         {
-            //int empId = Convert.ToInt32(id);  
-            Citizen citizen = objCit.Citizens.Find(employee.ID, employee.CName);
+            int id = Convert.ToInt32(citizen_id);  
+            Citizen citizen = objCit.Citizens.Find(id, citizen_name);
             if (citizen == null)
             {
                 return NotFound();
