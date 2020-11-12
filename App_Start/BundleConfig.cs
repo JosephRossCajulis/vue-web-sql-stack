@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace AngularWebAPISample
+namespace VueWebAPISample
 {
     public class BundleConfig
     {
